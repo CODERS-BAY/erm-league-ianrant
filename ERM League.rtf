@@ -1,0 +1,66 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8760\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\fs28 \cf0 Ein Fussballclub (ID, adresse, name) hat mehrere Teams. Es gibt drei Altersstufen, n\'e4mlich Erwachsene, Jugendliche und Kinder. Jede dieser Stufen hat jeweils mind. eine M\'e4nnermannschaft und Frauenmannschaft. \
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Jede Altersstufe hat eine reine Trainingsmannschaft und eine Kampfmannschaft, die sich aus Spielern der Trainingsmannschaft und aus externen Spielern zusammensetzen kann, die nicht Teil der Trainingsmannschaft sind. \
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Es gibt eine Gruppe von N Trainern. Jede Mannschaft hat einen Haupttrainer und einen Co-Trainer, wobei der Haupttrainer einer Mannschaft auch der Co-Trainer einer anderen Mannschaft sein kann (z.B ist Trainer X Haupttrainer bei den Buben in der Kindermannschaft und gleichzeitig Co-Trainer bei den Frauen in der Jugendmannschaft). \
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Mehrere Clubs k\'f6nnen mit ihren gleichwertigen Mannschaften (m\'e4nnliche Erwachsenen nur gegen m\'e4nnliche Erwachsene, weibliche Kinder nur gegen weibliche Kinder, etc) gegeneinander in Freundschaftsspielen oder Saisonspiel gegeinander antreten, zu denen sie von je einem Trainer begleitet werden.\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 Diese Spiele finden in Stadien statt, und zur Orginasiation dieser Spiele gibt es einen Spielplan.
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+club( (PK) club_ID:int(15), club_name:varchar(50) )\
+\
+\
+team( (PK) team_ID:int(15), (FK) player_ID:int(15) )\
+\
+\
+trainer( (PK) trainer_ID:int(15), trainer_name:varchar(50) )\
+\
+\
+trains_team( (PK) team_ID:int(15), trainer_ID:int(15) )\
+\
+\
+player( (PK) player_ID:int(15), player_name:varchar(50), gender:varchar(1), age_group:varchar(5), training_only:bool, external:bool)\
+\
+\
+club_vs_club( (PK) club_ID:int(15), club_ID:int(15), trainer_ID:int(15), trainer_ID:int(15), team_ID:int(15), team_ID:int(15), player_ID:int(15), player_ID:int(15) )\
+\
+\
+gameplan( (PK) game_ID:int(15), (FK) club_ID:int(15), (FK) stadion_ID:int(15) )\
+\
+\
+stadion( (PK) stadion_ID:int(15), stadion_name:varchar(50) )\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
